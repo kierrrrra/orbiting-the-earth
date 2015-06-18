@@ -1,0 +1,85 @@
+$body: #E4F0FF;
+$highlight: #7DB8FF;
+
+
+html {
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+    font-size: 1rem;
+    line-height: 1.6rem;
+    color: $body;
+}
+
+h1, h2, h3,
+h4, h5, h6,
+p {
+    margin: 0;
+    font-weight: 100;
+    cursor: default;
+}
+
+h1 {
+    color: $highlight;
+    font-size: 4rem;
+    line-height: 1;
+    margin-bottom: 8rem;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 2.3rem;
+    padding-bottom: 6rem;
+}
+
+p, ul, ol {
+    font-size: 2rem;
+    line-height: 2.3rem;
+    padding-bottom: 6rem;
+}
+
+.reduced-padding {
+    padding-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.667rem;
+}
+
+h4 {
+    font-size: 1.5rem;
+    margin-bottom: 0.6rem;
+}
+
+h5 {
+    font-size: 1.333rem;
+    margin-bottom: 0.6rem;
+}
+
+h6 {
+    font-size: 1rem;
+    margin-bottom: 0.6rem;
+}
+
+a {
+    color: $highlight;
+    transition: color ease 0.3s;
+}
+
+a:hover {
+    color: lighter($highlight, 20%);
+}
+
+h1 a, h2 a, h3 a,
+h4 a, h5 a, h6 a {
+    color: $body;
+    text-decoration: none;
+}
+
+ol ol, ul ul,
+ul ol, ol ul {
+    margin: 0.4em 0;
+}
