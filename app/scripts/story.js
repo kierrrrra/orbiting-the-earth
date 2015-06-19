@@ -1,6 +1,3 @@
-var $ = require('jquery');
-var _ = require('lodash');
-
 var $story = $('.story');
 var $earth = $('.earth');
 
@@ -30,5 +27,3 @@ breakpoints.push({
         $earth.addClass('hidden');
     }
 });
-
-module.exports = {};

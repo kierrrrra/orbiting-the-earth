@@ -1,12 +1,3 @@
-var _ = require('lodash');
-var $ = require('jquery');
-var THREE = require('three');
-var OrbitControls = require('three-orbit-controls')(THREE);
-var Stats = require('./vendor/stats.min.js');
-var story = require('./story.js');
-
-var Earth = require('./earth.js');
-
 var scene = new THREE.Scene();
 
 var $earth = $('.earth');
@@ -33,26 +24,37 @@ $earth.append(renderer.domElement);
 
 var earth = new Earth({}, scene);
 
-earth.mesh.rotation.y = 1;
-
-var ambientLight = new THREE.AmbientLight(0x444444);
+var ambientLight = new THREE.AmbientLight(0xeeeeee);
 scene.add(ambientLight);
 
 //var pointLight = new THREE.PointLight(0xFFFFFF);
 //scene.add(pointLight);
 //pointLight.position.set(5000, 5000, 1000);
 
-var directionalLight = new THREE.DirectionalLight(0x666666, 1);
+var directionalLight = new THREE.DirectionalLight(0x555555, 1);
 directionalLight.position.set(5, 3, 5);
 scene.add(directionalLight);
 
 
-//var controls = new OrbitControls(camera);
+controls = new THREE.OrbitControls(camera);
+controls.damping = 0.2;
+controls.addEventListener('change', render);
+controls.noZoom = true;
+controls.noPan = true;
 
 function render () {
-    stats.begin();
+    earth.mesh.rotation.y += 0.002;
+    earth.clouds.rotation.y += 0.0018;
     renderer.render(scene, camera);
-    stats.end();
-    requestAnimationFrame(render);
 }
+
+function animate () {
+    requestAnimationFrame(animate);
+    render();
+    controls.update();
+    stats.update();
+}
+
+animate();
+
 render();
